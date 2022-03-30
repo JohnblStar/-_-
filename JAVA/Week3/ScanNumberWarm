@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class ScanNumberWarm {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner scan = new Scanner(System.in);
+		int input = scan.nextInt();
+		int[][] arr = new int[input][input];
+		int count = 1;
+		boolean can = true;
+		
+		for (int i = 0; i < arr.length; i++) {
+			if (can == true) {
+				for (int j = 0; j < arr.length; j++) {
+					arr[i][j] = count++;
+				}
+			} else {
+				for (int j = arr.length-1; j >= 0; j--) {
+					arr[i][j] = count++;
+				}
+			}
+			can = !can;
+			System.out.println();
+		}
+		
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr.length; j++) {
+				if (arr[i][j] / 10 == 0) {
+					System.out.print(arr[i][j] + "  ");
+				} else {
+					System.out.print(arr[i][j] + " ");
+				}
+			}
+			System.out.println();
+		}
+		
+	}
+}
+

@@ -6,27 +6,28 @@ public class NumberWarm {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		int[][] arr = new int[5][5];
-		int count = 1;
-		boolean can = true;
+		int[][] arr = new int[5][5]; // 배열 길이 선언 및 지정
+		int count = 1; // 배열 안에 넣을 값 선언
+		boolean can = true; // 처리 조건을 위한 boolean형태 변수 선언
 		
-		for (int i = 0; i < 5; i++) {
-			if (can == true) {
-				for (int j = 0; j < 5; j++) {
-					arr[i][j] = count++;
+		for (int i = 0; i < 5; i++) { // 5*5형태 이기 때문에 2중 루프 선택
+			if (can == true) { // 변수 can이 true 일 때
+				for (int j = 0; j < 5; j++) { // 오름차순으로 배열에 값 할당
+					arr[i][j] = count++; // 배열에 값 넣기
 				}
-			} else {
-				for (int j = 4; j >= 0; j--) {
-					arr[i][j] = count++;
+			} else { // 변수 can이 false 일 때
+				for (int j = 4; j >= 0; j--) { // 내림차순 값 할당
+					arr[i][j] = count++; // 조건에 맞게 배열에 값 넣기
 				}
 			}
-			can = !can;
-			System.out.println();
+			can = !can; // 바깥쪽 루프가 한번 돌때 안쪽 루프가 5번 도는 형태이므로
+						// 바깥쪽 루프가 끝날 때 can을 false로 바꿔줌
+			System.out.println(); // 바깥 쪽 루프가 한번 돌 때마다 줄바꿈
 		}
 		
 		for (int i = 0; i < arr.length; i++) {
 			for (int j = 0; j < arr.length; j++) {
-				if (arr[i][j] / 10 == 0) {
+				if (arr[i][j] / 10 == 0) { // 행렬표의 형태를 갖추기 위한 조건문
 					System.out.print(arr[i][j] + "  ");
 				} else {
 					System.out.print(arr[i][j] + " ");

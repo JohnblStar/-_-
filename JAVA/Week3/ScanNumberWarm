@@ -7,7 +7,7 @@ public class ScanNumberWarm {
 		
 		Scanner scan = new Scanner(System.in);
 		int input = scan.nextInt();
-		int[][] arr = new int[input][input];
+		int[][] arr = new int[input][input]; // 스캐너로 받아온 값으로 배열의 길이 지정
 		int count = 1;
 		boolean can = true;
 		
@@ -17,7 +17,7 @@ public class ScanNumberWarm {
 					arr[i][j] = count++;
 				}
 			} else {
-				for (int j = arr.length-1; j >= 0; j--) {
+				for (int j = arr.length-1; j >= 0; j--) { // 배열의 길이를 넘을 때 오류가 발생하므로 -1 해줌
 					arr[i][j] = count++;
 				}
 			}

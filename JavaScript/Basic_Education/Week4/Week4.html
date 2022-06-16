@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #container {
+      margin: 0 auto;
+    }
+
+    ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    li {
+      padding: 10px;
+    }
+
+    button {
+      width: 100px;
+      height: 30px;
+    }
+
+
+
+
+
+/* 동적으로 추가되는 클래스 */
+    .newspan{
+      display: inline-block;
+      width:100px;
+      height: 100px;
+      background-color: black;
+      margin:5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <ul>
+      <li><button id="create">create span</button></li> 
+      <li>색상 선택 후 엔터 --> <input id="color" type="color"></li>
+    </ul>
+  </div>
+
+  <section id="section"> 
+<!-- span 을 넣을 공간 -->
+
+  </section>
+
+  <script>
+    const create = document.getElementById('create'); //span 추가버튼
+    const section = document.getElementById('section'); //span을 넣을 공간
+
+     //create 버튼에 이벤트핸들러 등록. 
+
+    create.addEventListener("click", createSpan);
+
+    /*
+    function onClickEventHandle(){ // create버튼을 눌렀을 때 발생하는 이벤트핸들러
+      console.log("onClickEventHandle");
+      createSpan(); // createSpan 호출
+    }
+    */
+
+    function createSpan(){
+      console.log("createSpan");
+      const color = document.getElementById('color').value;
+       //create버튼을 누르는 순간에 color값을 가져와야 하므로 변수선언을 함수안에서 함.
+       const span = document.createElement("span");
+       //spanELement 생성
+       span.classList.add('newspan');
+       //span에 newspan이라는 클래스 추가
+       span.style.backgroundColor = color;
+       //span의 배경색을 입력받은 color 로 변경
+       section.appendChild(span);
+       //section에 span 추가
+       console.log(color);
+      deleteSpan();  //deleteSpan 호출
+    }
+
+    function deleteSpan(){
+      //setTimeout 함수를 이용해서 newspan이란 클래스를 가진 배열의 0번째 값을 5초마다 없앰.
+      setTimeout(()=>{
+        console.log("deleteSpan");
+        const newspan = document.getElementsByClassName('newspan');
+        newspan[0].remove();
+      },5000);
+    }
+
+  </script>
+</body>
+
+</html>
